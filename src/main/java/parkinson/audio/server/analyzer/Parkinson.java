@@ -165,7 +165,6 @@ public class Parkinson {
 			}
 		} catch (PraatException e) {
 			log.error("error on manage datas :" + e.getMessage());
-
 		}
 
 		return results;

@@ -1,8 +1,8 @@
-/Users/roberto/Documents/workspaceServer/server-analyze-audios/src/main/java/parkinson/audio/server/utils/ConstantsFCR.java
-/Users/roberto/Documents/workspaceServer/server-analyze-audios/src/main/java/parkinson/audio/server/analyzer/Parkinson.java
-/Users/roberto/Documents/workspaceServer/server-analyze-audios/src/main/java/parkinson/audio/server/configuration/SecurityConfig.java
-/Users/roberto/Documents/workspaceServer/server-analyze-audios/src/main/java/parkinson/audio/server/configuration/SpringFoxConfig.java
-/Users/roberto/Documents/workspaceServer/server-analyze-audios/src/main/java/parkinson/audio/server/database/DatabaseSurveys.java
-/Users/roberto/Documents/workspaceServer/server-analyze-audios/src/main/java/parkinson/audio/server/ParkinsonApplication.java
-/Users/roberto/Documents/workspaceServer/server-analyze-audios/src/main/java/parkinson/audio/server/analyzer/IndexValue.java
-/Users/roberto/Documents/workspaceServer/server-analyze-audios/src/main/java/parkinson/audio/server/servlet/AudioServlet.java
+C:\Users\rober\eclipse-workspace\server-analyze-audios\src\main\java\parkinson\audio\server\utils\ConstantsFCR.java
+C:\Users\rober\eclipse-workspace\server-analyze-audios\src\main\java\parkinson\audio\server\configuration\SecurityConfig.java
+C:\Users\rober\eclipse-workspace\server-analyze-audios\src\main\java\parkinson\audio\server\configuration\SpringFoxConfig.java
+C:\Users\rober\eclipse-workspace\server-analyze-audios\src\main\java\parkinson\audio\server\ParkinsonApplication.java
+C:\Users\rober\eclipse-workspace\server-analyze-audios\src\main\java\parkinson\audio\server\servlet\AudioServlet.java
+C:\Users\rober\eclipse-workspace\server-analyze-audios\src\main\java\parkinson\audio\server\analyzer\Parkinson.java
+C:\Users\rober\eclipse-workspace\server-analyze-audios\src\main\java\parkinson\audio\server\database\DatabaseSurveys.java
+C:\Users\rober\eclipse-workspace\server-analyze-audios\src\main\java\parkinson\audio\server\analyzer\IndexValue.java

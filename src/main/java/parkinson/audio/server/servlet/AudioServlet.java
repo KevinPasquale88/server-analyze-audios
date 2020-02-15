@@ -8,9 +8,12 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,33 +31,35 @@ public class AudioServlet {
 	@Autowired
 	DatabaseSurveys db;
 
-	@PostMapping(path = SAVE_DIR)
-	public String submit(@RequestParam("files") MultipartFile[] files) throws IllegalStateException, IOException {
+	@RequestMapping(path = SAVE_DIR, method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String submit(MultipartFile fileA1, MultipartFile fileA2, MultipartFile fileI1, MultipartFile fileI2,
+			MultipartFile fileU1, MultipartFile fileU2) throws IllegalStateException, IOException {
 		JSONObject jsonResp = new JSONObject();
+		log.info("Invoke mehtod " + SAVE_DIR);
 
-		log.info("Files received: size:" + files.length);
-
-		if (files.length != 6) {
-			log.error("Number files received is wrong then needed . . .");
-			jsonResp.put("errors", "Need 6 files.");
+		if (validate(jsonResp, fileA1, "fileA1") | validate(jsonResp, fileA2, "fileA2")
+				| validate(jsonResp, fileI1, "fileI1") | validate(jsonResp, fileI2, "fileI2")
+				| validate(jsonResp, fileU1, "fileU1") | validate(jsonResp, fileU2, "fileU2")) {
+			jsonResp.put("error", "Need 6 files.");
 			return jsonResp.toString();
 		}
 
 		log.debug("Convert files to be managed . . .");
 		File A1 = new File("filename1");
-		files[0].transferTo(A1);
+		fileA1.transferTo(A1);
 		File A2 = new File("filename2");
-		files[1].transferTo(A2);
+		fileA2.transferTo(A2);
 
 		File I1 = new File("filename3");
-		files[2].transferTo(I1);
+		fileI1.transferTo(I1);
 		File I2 = new File("filename4");
-		files[3].transferTo(I2);
+		fileI2.transferTo(I2);
 
 		File U1 = new File("filename5");
-		files[4].transferTo(U1);
+		fileU1.transferTo(U1);
 		File U2 = new File("filename6");
-		files[5].transferTo(U2);
+		fileU2.transferTo(U2);
 
 		log.debug("Start manage files . . . ");
 		Map<String, Double> results = new Parkinson(A1, A2, I1, I2, U1, U2).analyze();
@@ -62,6 +67,14 @@ public class AudioServlet {
 		jsonResp.put("upload", "done").put("fcr1", results.get(ConstantsFCR.FCR_1_SESSION)).put("fcr2",
 				results.get(ConstantsFCR.FCR_2_SESSION));
 		return jsonResp.toString();
+	}
+
+	private boolean validate(JSONObject jsonResp, MultipartFile generic_file, String nameFile) {
+		if (generic_file == null) {
+			jsonResp.put(nameFile, "null value");
+			return true;
+		}
+		return false;
 	}
 
 	@GetMapping("/db")

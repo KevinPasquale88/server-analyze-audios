@@ -1,6 +1,6 @@
 spring:
    datasource:
-      url: jdbc:mysql://localhost:3306/doctorparkinson
+      url: jdbc:mysql://localhost:3306/parkinson
       username: root
       password: root
    jpa:
@@ -17,7 +17,7 @@ server:
 spring:
    profiles: container
    datasource:
-      url: jdbc:mysql://localhost:3306/doctorparkinson
+      url: jdbc:mysql://localhost:3306/parkinson
       username: root
       password: root
    jpa:
