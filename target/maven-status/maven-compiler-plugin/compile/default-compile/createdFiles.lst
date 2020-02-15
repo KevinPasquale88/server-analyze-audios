@@ -1,0 +1,8 @@
+parkinson/audio/server/configuration/SpringFoxConfig.class
+parkinson/audio/server/database/DatabaseSurveys.class
+parkinson/audio/server/servlet/AudioServlet.class
+parkinson/audio/server/utils/ConstantsFCR.class
+parkinson/audio/server/configuration/SecurityConfig.class
+parkinson/audio/server/analyzer/IndexValue.class
+parkinson/audio/server/ParkinsonApplication.class
+parkinson/audio/server/analyzer/Parkinson.class
