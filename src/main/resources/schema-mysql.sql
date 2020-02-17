@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS rilevazioni (
+fcr1 DOUBLE,
+fcr2 DOUBLE);

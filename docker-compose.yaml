@@ -1,0 +1,21 @@
+version: "3"
+services:
+  server-analyze-audios:
+    image: server-analyze-audios
+    ports:
+      - "8080:8080"
+    networks:
+      - parkinson-audios-mysql
+    depends_on:
+      - mysqldb
+ 
+  mysqldb:
+    image: mysql:8
+    networks:
+      - parkinson-audios-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=parkinson  
+
+networks:
+  parkinson-audios-mysql: 
