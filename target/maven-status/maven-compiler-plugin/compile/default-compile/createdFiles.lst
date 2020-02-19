@@ -1,6 +1,8 @@
 parkinson\audio\server\configuration\SpringFoxConfig.class
 parkinson\audio\server\servlet\AudioServlet.class
+parkinson\audio\server\utils\Survey.class
 parkinson\audio\server\utils\ConstantsFCR.class
+parkinson\audio\server\utils\SurveyMapper.class
 parkinson\audio\server\analyzer\Parkinson.class
 parkinson\audio\server\ParkinsonApplication.class
 parkinson\audio\server\analyzer\IndexValue.class
