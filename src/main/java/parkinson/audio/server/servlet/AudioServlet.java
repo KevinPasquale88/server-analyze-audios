@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,9 +78,10 @@ public class AudioServlet {
 		return false;
 	}
 
-	@GetMapping("/db")
+	@GetMapping("/insert/survey")
 	public String insert(@RequestParam(ConstantsFCR.FCR_1_SESSION) Double fcr1,
 			@RequestParam(ConstantsFCR.FCR_2_SESSION) Double fcr2) {
+		log.info("Start method /insert/survey . . . ");
 		JSONObject jsonResp = new JSONObject();
 		if (db.insertRilevazioni(fcr1, fcr2) < 1) {
 			log.error("Not save datas on db . . .");
@@ -87,6 +89,13 @@ public class AudioServlet {
 		}
 		return jsonResp.put("success", "Save survays . . .").toString();
 
+	}
+
+	@GetMapping("/listsurveys")
+	public String getList() {
+		log.info("Start method /listsurveys . . . ");
+		JSONArray array = new JSONArray(db.list());
+		return array.toString();
 	}
 
 }
